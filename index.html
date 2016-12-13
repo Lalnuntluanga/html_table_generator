@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Table Generator</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			@charset "UTF-8";
+			[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate) {
+				display:none !important;
+			}
+			ng\:form {
+				display:block;
+			}
+			.ng-animate-shim {
+				visibility:hidden;
+			}
+			.ng-anchor {
+				position:absolute;
+			}
+
+		</style>
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+<body>
+	<div class="wrapper" ng-app="app" ng-controller="generator">
+	
+		<div class="innerWrapper-main">
+			<h1 class="page-title">Table generator</h1>
+			<form id="input-form" ng-submit="generate($event)">
+				
+				<textarea placeholder="Paste your table here | First row will be a table header" ng-change="parseTable()" ng-model="inputString"></textarea>
+				
+				<div class="table_wrapper">
+					<table cellpadding="0" cellspacing="0" ng-show="(data.length > 0)?true:false">			
+						<tr ng-repeat="x in data">
+							<td ng-repeat="y in x"><input type="text" ng-model="y.item"></input></td>
+							<td><input type="button" class="remove" value="&times;" title="Remove this row" ng-click="remField($index);" ng-disabled="(data.length <= 1)?true:false"></input></td>
+						</tr>
+					</table>
+				</div>
+				
+				
+				<div class="bottom-cta">
+					<input type="submit" value="Generate Code"></input>
+				</div>
+			</form>
+		</div>
+		
+		
+		<div id="output" class="pop-up" ng-class="(open_output)?'show':'hide'" ng-cloak>
+			<div ng-click="open_output = false;">
+				<div class="output_container self-clear" ng-click="stopPropagation($event)">
+					<p class="code-copied" ng-class="(showCopied)?'show':'hide'" ng-cloak>Code copied</p>
+					<textarea ng-bind="output" id="output_string"></textarea>
+					<button class="float-right copy-btn btn" ng-click="copyValue('output_string')">Copy Code</button>
+					<button class="float-right copy-btn btn" ng-click="preview()">Preview</button>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+	</div>
+<script src="js/angular.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
