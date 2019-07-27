@@ -121,5 +121,15 @@ app.controller("generator",function($scope, $timeout){
 		$scope.open_output = true;
 	}
 	
+
+	$scope.generateJson = function(e){
+
+		console.log("$scope.data")
+		console.log($scope.data)
+
+		$scope.output  = JSON.stringify($scope.data);		
+		$scope.open_output = true;
+	}
+
 	
 });
