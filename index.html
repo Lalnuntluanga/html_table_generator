@@ -30,7 +30,16 @@
 			<h1 class="page-title">Table generator</h1>
 			<form id="input-form" ng-submit="generate($event)">
 				
-				<textarea placeholder="Paste your table here | First row will be a table header" ng-change="parseTable()" ng-model="inputString"></textarea>
+				<div class="table-grid">
+					<div>
+						<p>Person table</p>
+						<textarea placeholder="Paste person table" ng-change="parsePersonsTable()" ng-model="personString"></textarea>
+					</div>
+					<div>
+						<p>Users Table</p>
+						<textarea placeholder="Paste users table" ng-change="parseTable()" ng-model="inputString"></textarea>
+					</div>
+				</div>
 				
 				<div class="table_wrapper">
 					<table cellpadding="0" cellspacing="0" ng-show="(data.length > 0)?true:false">			
@@ -67,5 +76,6 @@
 	</div>
 <script src="js/angular.min.js"></script>
 <script src="js/main.js"></script>
+<script src="persons.js"></script>
 </body>
 </html>

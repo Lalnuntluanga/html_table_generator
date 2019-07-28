@@ -8,7 +8,6 @@ body
 }
 
 #input-form {
-  width: 861px;
   max-width: 100%;
   margin: 0px auto;
   text-align: center;
@@ -146,4 +145,10 @@ body
 
 #output .btn.copy-btn:active{
   background: #333;
+}
+
+.table-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 2fr;
 }
