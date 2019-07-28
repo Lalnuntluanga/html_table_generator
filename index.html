@@ -28,7 +28,7 @@
 	
 		<div class="innerWrapper-main">
 			<h1 class="page-title">Table generator</h1>
-			<form id="input-form" ng-submit="generate($event)">
+			<form id="input-form">
 				
 				<div class="table-grid">
 					<div>
@@ -37,7 +37,7 @@
 					</div>
 					<div>
 						<p>Users Table</p>
-						<textarea placeholder="Paste users table" ng-change="parseTable()" ng-model="inputString"></textarea>
+						<textarea placeholder="Paste users table" ng-change="parseUsersTable()" ng-model="inputString"></textarea>
 					</div>
 				</div>
 				
@@ -52,7 +52,6 @@
 				
 				
 				<div class="bottom-cta">
-					<input type="submit" value="Generate Code"></input>
 					<input type="button" ng-click="generateJson()" value="Generate JSON"></input>
 				</div>
 			</form>
